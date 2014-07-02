@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+var wsocket;
+function connect() {
+   wsocket = new WebSocket("ws://localhost:8080/testwebsocket3/dukeetf");
+   wsocket.onmessage = onMessage;
+}
+function onMessage(evt) {
+   var arraypv = evt.data.split(",");
+                document.getElementById("price").innerHTML = arraypv[0];
+                document.getElementById("volume").innerHTML = arraypv[1];
+            }
+            window.addEventListener("load", connect, false);
+        </script>
+
+
+
+    </head>
+    <body>
+        
+<table>
+    <tr>
+    <td id="price">--.--</td>
+    <td id="volume">--</td>
+    </tr>
+  </table>
+        
+    </body>
+</html>
